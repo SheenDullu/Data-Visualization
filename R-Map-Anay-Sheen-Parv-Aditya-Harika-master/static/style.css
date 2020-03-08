@@ -1,0 +1,72 @@
+table {
+    width: 30%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin: 30px auto;
+    margin-left: 10px;
+    margin-top: -2px;
+  }
+
+tbody{
+  display: block;
+  overflow: auto;
+  height: 450px;
+}
+thead tr{
+    display: block;
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+th {
+  background: #333;
+  color: white;
+  font-weight: bold;
+  cursor: s-resize;
+}
+td,
+th {
+  padding: 3px;
+
+  text-align: center;
+  width: 30%;
+
+}
+th.des:after {
+  content: "\21E3";
+}
+th.aes:after {
+  content: "\21E1";
+}
+tr:hover {
+  background-color: lightsteelblue;
+  cursor: pointer;
+}
+
+.tabbable {
+float: center;
+margin-top: 10px;
+}
+h3 {
+float: left;
+margin-bottom: 10px;
+
+}
+.timeline {
+  position: absolute;
+  top: 90%;
+  left: 45%;
+}
+.rmap {
+  position: absolute;
+  top: 10%;
+  left: 35%;
+}
+.funnel {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+}
+

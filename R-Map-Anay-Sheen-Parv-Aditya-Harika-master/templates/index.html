@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>R-Map</title>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body style="background-color: lightblack; padding: 10px">
+        <h3>R-Map</h3>
+        </nav>
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li class="active"><a class="tab1" href="#tab1" data-toggle="tab">Original Visualisations</a></li>
+                <li><a class="tab2" href="#tab2" data-toggle="tab">Extended Visualisations</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <acontent></acontent>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <bcontent></bcontent>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+        <script src="https://bl.ocks.org/abrahamdu/raw/e1481e86dd4e9d553cc2d7d359b91e68/d3.layout.cloud.js"></script>
+        <script type="text/javascript"
+         src="{{ url_for('static', filename='d3.v4.js') }}"></script>
+         <script type="text/javascript"
+         src="{{ url_for('static', filename='d3.scale.chromatic.js') }}"></script>
+         <script type="text/javascript"
+         src="{{ url_for('static', filename='d3.topojson.js') }}"></script>
+         <script type="text/javascript"
+         src="{{ url_for('static', filename='d3.queue.js') }}"></script>
+        <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+        <script src="../static/funnel.js"></script>
+
+        <script>
+            $.ajaxSetup ({
+                // Disable caching of AJAX responses
+                // Used when debugging
+                cache: false
+            });
+        
+            $.getScript("../static/R-map.js");
+            $(".tab1").click(function() {
+                if ($("table").length){
+                    $("table").remove();
+                    $("svg").remove();
+                }
+                $.getScript("../static/R-map.js");
+            })
+        </script>
+        <script>
+            $(".tab2").click(function() {
+                if ($(".bubble").length){
+                    $(".bubble").remove();
+                }
+                $.getScript("../static/Extend-viz.js");
+            })
+        </script>
+    </body>
+</html>
